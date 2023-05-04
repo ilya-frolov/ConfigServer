@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "hello")
+@RequestMapping(value = "/hello")
 public class HelloController {
 
-    @Value("${hello}")
-    String hello;
+    @Value("${message: Hello World}")
+    String message;
 
-    @GetMapping
+    @GetMapping(value = "/message")
     public String helloWorld() {
-        return hello;
+        return this.message;
     }
 }
